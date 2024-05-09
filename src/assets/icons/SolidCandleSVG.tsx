@@ -1,0 +1,14 @@
+import React from 'react';
+
+const SolidCandleSVG = () => {
+  return (
+    <svg width="111" height="111" viewBox="0 0 111 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 6L40 106" stroke="#727781" stroke-width="4" stroke-linecap="round" />
+      <path d="M70 16V97" stroke="#727781" stroke-width="4" stroke-linecap="round" />
+      <rect x="60" y="39" width="20" height="35" fill="#727781" stroke="#727781" stroke-width="3" stroke-linejoin="round" />
+      <rect x="30" y="29" width="20" height="55" fill="#727781" stroke="#727781" stroke-width="3" stroke-linejoin="round" />
+    </svg>
+  );
+};
+
+export default SolidCandleSVG;
