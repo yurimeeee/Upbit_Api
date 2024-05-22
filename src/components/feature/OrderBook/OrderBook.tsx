@@ -15,7 +15,6 @@ const OrderBookContatiner = styled.div`
   max-height: 815px;
   min-width: 254px;
   overflow: overlay;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   overflow-y: scroll;
 `;
 
