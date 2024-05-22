@@ -7,12 +7,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import theme from '@styles/theme';
 
+import LogoImg from '@assets/images/coninlab_logo.png';
+
 const Header = () => {
   return (
     <Wrapper>
       <Container>
-        gpej
-        <Logo href="/">{/* <Image src={LogoIcon} alt="덴로그" width={108} height={24} priority /> */}</Logo>
+        <Logo href="/">
+          <Img src={LogoImg} alt="로고" />
+        </Logo>
       </Container>
     </Wrapper>
   );
@@ -38,7 +41,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   /* max-width: 1920px; */
-  max-width: 1760px;
+  max-width: 1440px;
   height: 100%;
   margin: 0 auto;
 `;
@@ -46,6 +49,7 @@ export const Container = styled.div`
 export const Logo = styled(Link)`
   width: 108px;
 `;
+export const Img = styled(Image)``;
 export const GnbItemBox = styled.div`
   display: flex;
   align-items: center;

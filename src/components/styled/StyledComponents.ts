@@ -19,6 +19,7 @@ type FlexBoxType = {
   $gap?: string;
   $margin?: string;
   $border?: string;
+  $maxWidth?: string;
 };
 
 type WrapperType = {
@@ -29,35 +30,35 @@ type WrapperType = {
 };
 
 export const BoldFont = styled.div<FontType>`
-  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)};
+  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)} !important;
   font-size: ${({ $fontSize }) => ($fontSize ? `${$fontSize}px` : '16px')};
   line-height: ${({ $lineHeight }) => ($lineHeight ? `${$lineHeight}px` : '1.4')};
   font-family: 'PretendardBold', 'SF Pro Display', sans-serif;
   margin: ${({ $margin }) => ($margin ? $margin : 0)};
 `;
 export const SemiBoldFont = styled.div<FontType>`
-  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)};
+  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)}!important;
   font-size: ${({ $fontSize }) => ($fontSize ? `${$fontSize}px` : '16px')};
   line-height: ${({ $lineHeight }) => ($lineHeight ? `${$lineHeight}px` : '1.4')};
   font-family: 'PretendardSemiBold', 'SF Pro Display', sans-serif;
   margin: ${({ $margin }) => ($margin ? $margin : 0)};
 `;
 export const MediumFont = styled.div<FontType>`
-  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)};
+  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)}!important;
   font-size: ${({ $fontSize }) => ($fontSize ? `${$fontSize}px` : '16px')};
   line-height: ${({ $lineHeight }) => ($lineHeight ? `${$lineHeight}px` : '1.4')};
   font-family: 'PretendardMedium', 'SF Pro Display', sans-serif;
   margin: ${({ $margin }) => ($margin ? $margin : 0)};
 `;
 export const RegularFont = styled.div<FontType>`
-  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)};
+  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)}!important;
   font-size: ${({ $fontSize }) => ($fontSize ? `${$fontSize}px` : '16px')};
   line-height: ${({ $lineHeight }) => ($lineHeight ? `${$lineHeight}px` : '1.4')};
   font-family: 'PretendardRegular', 'SF Pro Display', sans-serif;
   margin: ${({ $margin }) => ($margin ? $margin : 0)};
 `;
 export const LightFont = styled.div<FontType>`
-  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)};
+  color: ${({ $fontColor, theme }) => ($fontColor ? $fontColor : theme.colors.blackColor)} !important;
   font-size: ${({ $fontSize }) => ($fontSize ? `${$fontSize}px` : '16px')};
   line-height: ${({ $lineHeight }) => ($lineHeight ? `${$lineHeight}px` : '1.4')};
   font-family: 'PretendardLight', 'SF Pro Display', sans-serif;
@@ -72,6 +73,7 @@ export const FlexBox = styled.div<FlexBoxType>`
   gap: ${({ $gap }) => ($gap ? $gap : 0)};
   margin: ${({ $margin }) => ($margin ? $margin : 0)};
   border: ${({ $border }) => ($border ? '1px solid red' : 'none')};
+  max-width:  ${({ $maxWidth }) => ($maxWidth ? $maxWidth : '100%')};
 `;
 
 export const Wrapper = styled.div<WrapperType>`

@@ -2,7 +2,6 @@
 
 import styled, { css } from 'styled-components';
 import theme from '@styles/theme';
-import { RegularFont } from '@components/styled/StyledComponents';
 import { keyframes } from 'styled-components';
 import Image from 'next/image';
 
@@ -15,7 +14,7 @@ export const TableRow = styled.div<{ $disabled?: boolean; $height?: number }>`
   /* height: 45px; */
   height: ${({ $height }) => ($height ? `${$height}px` : '45px')};
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
   display: flex;
   align-items: center;
   border-bottom: 1px solid ${theme.colors.grayBorderColor};
@@ -46,6 +45,8 @@ export const TableText = styled.div<{ $textAlign?: string; $priceChange?: string
   width: 92%;
   height: 100%;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   margin: 0 auto;
   text-align: ${({ $textAlign }) => $textAlign ? $textAlign : 'center'};
   display: flex;
@@ -75,25 +76,6 @@ export const TableText = styled.div<{ $textAlign?: string; $priceChange?: string
     }
   }};
 }
-
-/* &::after{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top:0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  border: ${({ $priceChange }) => {
-    if ($priceChange === 'RISE') {
-      return `1px solid ${theme.colors.activeRed}`;
-    } else if ($priceChange === 'FALL') {
-      return `1px solid ${theme.colors.activeBlue}`;
-    } else {
-      return 'none';
-    }
-  }};
-} */
 &.price-changed::after{
   content:'';
     display:block;

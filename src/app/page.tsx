@@ -1,31 +1,19 @@
 'use client';
 
-import axios from 'axios';
-import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import TableHeader from '@components/feature/Table/TableHeader';
-import theme from '@styles/theme';
-// import { useRecoilState } from 'recoil';
-// import { searchCoinData } from '@recoil/atoms';
 
-import { init, dispose } from 'klinecharts';
 import RealTimeChart from '@components/feature/Chart/RealTimeChart';
 import RealTimePriceTable from '@components/feature/Table/RealTimePriceTable';
 import { FlexBox } from '@components/styled/StyledComponents';
-import { useRecoilState } from 'recoil';
-import { selectedCode } from '@recoil/atoms';
 import CoinInfoBox from '@components/feature/CoinInfo/CoinInfoBox';
 import OrderBook from '@components/feature/OrderBook/OrderBook';
 import SearchBox from '@components/feature/Search/SearchBox';
+import TradeHistory from '@components/feature/TradeHistory/TradeHistory';
 
 export default function Home() {
-  const [inputValue, setInputValue] = useState('');
-  const [selectedCoin, setSelectedCoin] = useRecoilState(selectedCode);
-  const [searchCoin, setSearchCoin] = useState('');
-
-  const onChangeSearchInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSearchCoin(value); // setSearchCoin의 값이 value로 변경되도록 수정합니다.
-  }, []);
+  const [isEnglish, setIsEnglish] = useState(false); // 마켓 명 영문으로 표기
+  const [isChangePrice, setIsChangePriceh] = useState(true); // 전일 대비 등락 가격 표시
 
   const tableHeader = [
     { label: '코인명', minWidth: 160, width: 40, sort: 'market' },
@@ -36,22 +24,18 @@ export default function Home() {
 
   return (
     <main>
-      {/* <input onChange={onChangeSearchInput} /> */}
-
-      <FlexBox $alignItems={'start'} $gap="100px" $justifyContent={'start'}>
+      <FlexBox $alignItems={'start'} $gap="10px" $justifyContent={'start'} $margin="20px 0 0">
+        <OrderBook />
         <FlexBox $flexDirection={'column'}>
           <CoinInfoBox />
           <RealTimeChart />
-          <OrderBook />
+          <TradeHistory />
         </FlexBox>
-        <FlexBox $flexDirection={'column'}>
-          <SearchBox />
+        <FlexBox $flexDirection={'column'} $maxWidth="400px">
+          <SearchBox isEnglish={isEnglish} isChangePrice={isChangePrice} setIsEnglish={setIsEnglish} setIsChangePriceh={setIsChangePriceh} />
 
-          <TableHeader
-            headers={tableHeader}
-            //  onChangeSortByTradePrice={onChangeSortByTradePrice}
-          />
-          <RealTimePriceTable headers={tableHeader} />
+          <TableHeader headers={tableHeader} />
+          <RealTimePriceTable headers={tableHeader} isEnglish={isEnglish} isChangePrice={isChangePrice} />
         </FlexBox>
       </FlexBox>
     </main>

@@ -3,18 +3,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { init, dispose, CandleType } from 'klinecharts';
 import styled from 'styled-components';
-
-import theme from '@styles/theme';
-import { UpbitCandle, UpbitWebSocketTicker } from '@type/upbit';
-import { FlexBox } from '@components/styled/StyledComponents';
-import ChevronSVG from '@assets/icons/ChevronSVG';
-import SolidCandleSVG from '@assets/icons/SolidCandleSVG';
-import solid_candle from '@assets/icons/solid_candle.svg';
-import stroke_candle from '@assets/icons/stroke_candle.svg';
-
 import Image from 'next/image';
 import { useRecoilState } from 'recoil';
+
+import theme from '@styles/theme';
 import { selectedCode } from '@recoil/atoms';
+import { UpbitCandle, UpbitWebSocketTicker } from '@type/upbit';
+import { FlexBox } from '@components/styled/StyledComponents';
+
+import ChevronSVG from '@assets/icons/ChevronSVG';
+import solid_candle from '@assets/icons/solid_candle.svg';
+import stroke_candle from '@assets/icons/stroke_candle.svg';
 
 type Headers = {
   label: string;
@@ -96,7 +95,6 @@ const RealTimeChart = ({}: RealTimeChartProps) => {
     };
 
     // 정렬된 데이터를 차트에 적용
-    // const sortedData = chartData.sort(sortByTimestampDesc);
     const sortedData = Array.isArray(chartData) ? chartData.sort(sortByTimestampDesc) : [];
 
     chart?.applyNewData(sortedData.map(mappingFunction));
@@ -201,20 +199,11 @@ const Wrapper = styled.div`
   max-width: 767px;
   height: 45px;
   background: ${theme.colors.ultralightBlueBgColor};
-  /* height: 45px;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid ${theme.colors.grayBorderColor};
-  border-bottom: 1px solid ${theme.colors.grayBorderColor};
-  width: 100%;
-  max-width: 400px;
-  background: ${theme.colors.ultralightBlueBgColor}; */
 `;
 const ChartControler = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* gap: 16px; */
   height: 100%;
   padding: 0 16px;
 `;
@@ -245,6 +234,7 @@ const ChartWrapper = styled.div`
   height: 400px;
   position: relative;
   background: ${theme.colors.whiteColor};
+  margin-bottom: 20px;
 `;
 const Option = styled.div`
   display: flex;

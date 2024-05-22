@@ -4,6 +4,7 @@ import RecoilRootWrapper from '@recoil/RecoilRootWrapper';
 import StyledComponentsRegistry from '@/lib/StyledComponentsRegistry';
 import Header from '@components/layout/Header';
 import { Wrapper } from '@components/styled/StyledComponents';
+import { SocketProvider } from '@lib/SocketProvider';
 
 export const metadata: Metadata = {
   title: 'coin-lab',
@@ -17,14 +18,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>
-        <RecoilRootWrapper>
-          <StyledComponentsRegistry>
-            <Header />
-            <Wrapper>{children}</Wrapper>
-          </StyledComponentsRegistry>
-        </RecoilRootWrapper>
-      </body>
+      <SocketProvider>
+        <body>
+          <RecoilRootWrapper>
+            <StyledComponentsRegistry>
+              <Header />
+              <Wrapper>{children}</Wrapper>
+            </StyledComponentsRegistry>
+          </RecoilRootWrapper>
+        </body>
+      </SocketProvider>
     </html>
   );
 }

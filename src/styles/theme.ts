@@ -66,6 +66,7 @@ const colors = {
   lightGrayBgColor: "#F1F3F9",
   ultralightBlueBgColor: "#FAFCFF",
   lightBlueBgColor: "#F5F7F9",
+  greyBgColor: "#C8CBD6",
 };
 
 const deviceSizes = {

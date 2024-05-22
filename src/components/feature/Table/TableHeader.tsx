@@ -10,7 +10,7 @@ export type HeaderType = {
   label: string;
   minWidth?: number;
   width: number;
-  sort: string;
+  sort?: string;
 };
 
 type TableRowProps = {
@@ -28,7 +28,16 @@ const TableHeader = ({ headers = [] }: TableRowProps) => {
     <Wrapper>
       {headers.map((header: HeaderType, index: number) => {
         return (
-          <TableCell key={`${index}-table-header`} $minWidth={header?.minWidth} $width={header.width} onClick={() => onHeaderClick(header?.sort)}>
+          <TableCell
+            key={`${index}-table-header`}
+            $minWidth={header?.minWidth}
+            $width={header.width}
+            onClick={() => {
+              if (header.sort) {
+                onHeaderClick(header.sort);
+              }
+            }}
+          >
             {header.label}
           </TableCell>
         );
@@ -46,7 +55,6 @@ const Wrapper = styled.div`
   border-top: 1px solid ${theme.colors.grayBorderColor};
   border-bottom: 1px solid ${theme.colors.grayBorderColor};
   width: 100%;
-  max-width: 400px;
   background: ${theme.colors.lightGrayBgColor};
 `;
 const TableCell = styled.div<{ $minWidth?: number; $width: number; $fontColor?: string }>`
