@@ -24,7 +24,6 @@ const Container = styled.div`
   ${flex({})}
   padding: 40px;
   margin: auto 0;
-  /* height: 20vh; */
   /* min-height: 200px; */
 `;
 
